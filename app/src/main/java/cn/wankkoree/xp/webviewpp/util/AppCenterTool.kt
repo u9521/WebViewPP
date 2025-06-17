@@ -1,6 +1,5 @@
 package cn.wankkoree.xp.webviewpp.util
 
-import cn.wankkoree.xp.webviewpp.BuildConfig
 import cn.wankkoree.xp.webviewpp.application.Application
 import cn.wankkoree.xp.webviewpp.data.ModuleSP
 import com.highcapable.yukihookapi.hook.factory.prefs
@@ -17,12 +16,12 @@ object AppCenterTool {
     private var initialized = false
     fun init() {
         if (application.prefs("module").get(ModuleSP.app_center)) { // 开启
-            if (!initialized) { // 未初始化
-                AppCenter.start(application, BuildConfig.APP_CENTER_SECRET, Analytics::class.java, Crashes::class.java)
-                if (AppCenter.isConfigured()) initialized = true
-            } else {
-                AppCenter.setEnabled(true)
-            }
+            AppCenter.setEnabled(false)
+//            if (!initialized) { // 未初始化
+//                AppCenter.start(application, BuildConfig.APP_CENTER_SECRET, Analytics::class.java, Crashes::class.java)
+//                if (AppCenter.isConfigured()) initialized = true
+//            } else {
+//            }
         } else {
             if (initialized) {
                 AppCenter.setEnabled(false)
