@@ -55,7 +55,7 @@ jobs:
 
     - name: 存档
       id: artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@main
       with:
         name: ${{ steps.result.outputs.apk }}
         path: ./app/build/outputs/apk/dev/${{ steps.result.outputs.apk }}
